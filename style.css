@@ -1,0 +1,199 @@
+@charset "UTF-8";
+* {
+  vertical-align: top;
+  font-family: 微軟正黑體;
+  backface-visibility: hidden;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #222;
+  overflow: hidden;
+}
+
+.center_box {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.center_box h2 {
+  color: #eee;
+  font-weight: normal;
+}
+.center_box .keyboard {
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.8);
+  display: inline-block;
+  margin-bottom: 20px;
+}
+.center_box .pianokey {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+}
+.center_box .pianokey .press.kblight {
+  width: 5px;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+}
+.center_box .pianokey .press.kblight.w {
+  background-color: rgba(255, 105, 180, 0.1);
+  box-shadow: 0px 0px 70px hotpink;
+}
+.center_box .pianokey .press.kblight.b {
+  background-color: rgba(133, 210, 255, 0.1);
+  box-shadow: 0px 0px 70px #85d2ff;
+  z-index: -1;
+}
+.center_box .pianokey .white {
+  width: 44px;
+  height: 300px;
+  border: solid 1px #555;
+  z-index: 0;
+  transition: 0.5s;
+  background-color: #ccc;
+}
+.center_box .pianokey .white:hover {
+  background-color: #fff;
+}
+.center_box .pianokey .white:hover .press {
+  width: 5px;
+  height: 100vh;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
+  background-color: rgba(255, 105, 180, 0.1);
+  box-shadow: 0px 0px 70px hotpink;
+}
+.center_box .pianokey .black {
+  width: 28px;
+  height: 180px;
+  position: absolute;
+  background-color: #333;
+  margin: 0px -14px;
+  z-index: 3;
+  top: -2px;
+  transition: 0.1s;
+  pointer-events: none;
+}
+.center_box .pianokey .black.hide {
+  z-index: 2;
+  pointer-events: auto;
+}
+.center_box .pianokey .black.hide .press.kblight.b {
+  display: none;
+}
+.center_box .pianokey .black.hide:hover {
+  transform: translateY(3px);
+  background-color: #262626;
+}
+.center_box .pianokey .black.hide:hover .press.kblight.b {
+  display: block;
+}
+.center_box .pianokey .label {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #666;
+  font-size: 14px;
+}
+.center_box .white.playing {
+  background-color: #eee;
+}
+.center_box .black.playing {
+  transform: translateY(2px);
+  background-color: #414141;
+  z-index: 5;
+}
+.center_box .viewbox {
+  margin-top: 25px;
+  margin-left: 50%;
+  margin-bottom: 10px;
+  transform: translateX(-50%);
+  border: solid 1px #333;
+  width: 300px;
+  height: 55px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #fff;
+  overflow: hidden;
+}
+.center_box .viewbox.light {
+  animation: light_change 10s infinite;
+}
+@keyframes light_change {
+  0% {
+    box-shadow: 0px 0px 10px #fff;
+  }
+  25% {
+    box-shadow: 0px 0px 10px #ff339c;
+  }
+  50% {
+    box-shadow: 0px 0px 10px #fff533;
+  }
+  75% {
+    box-shadow: 0px 0px 10px #2bb1ff;
+  }
+}
+.center_box .sheet ul {
+  position: absolute;
+  white-space: nowrap;
+  margin-top: 6px;
+  margin-left: -10px;
+}
+.center_box .sheet ul li {
+  list-style: none;
+  display: inline-block;
+  border-right: solid 2px #aaa;
+  padding: 0px 2px;
+  cursor: pointer;
+  width: 35px;
+}
+.center_box .sheet ul li:hover {
+  background-color: rgba(187, 187, 187, 0.5);
+}
+.center_box .sheet ul li .name {
+  color: #eee;
+}
+.center_box .sheet ul li .time {
+  color: #444;
+}
+.center_box .sheet .playing {
+  background-color: rgba(187, 187, 187, 0.5);
+}
+.center_box button {
+  margin: 5px 2px;
+  margin-top: 10px;
+  color: #555;
+  border: none;
+  border: solid 1px #555;
+  border-radius: 3px;
+  padding: 2px 10px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.center_box button i {
+  margin-left: 5px;
+  vertical-align: middle;
+  padding: 0px;
+  margin-top: -3px;
+}
+.center_box button i.fa.fa-circle {
+  color: #cc0000;
+}
+.center_box button:hover {
+  color: white;
+  background-color: #555;
+}
+.center_box h5 {
+  color: #bbb;
+}
